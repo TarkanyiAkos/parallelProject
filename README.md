@@ -1,4 +1,4 @@
-# parallelProject
+# Párhuzamos Algoritmusok Projekt
 
 Párhuzamos Programozás beadandó feladat forrásfájljai, futtathatói és maga a bemutató.
 
