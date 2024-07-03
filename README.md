@@ -2,6 +2,7 @@
 Párhuzamos Programozás beadandó feladat forrásfájljai, futtathatói és maga a bemutató.
 
 **Fájlok**:
+
 Measurements.xlsx - A méréseket tartalmazó Excel munkafüzet
 openmp.c - Az openmp.exe futtatható fájl forráskódja
 openmp.exe - Az első feladat b) részének futtatható fájlja.
@@ -11,11 +12,13 @@ posix.exe - Az első feladat a) részének futtatható fájlja.
 testText.txt - Egy példa szövegfájl a keresések elvégzéséhez. Tartalma internetes oldalakon generált Lorem Ipsum szöveg.
 
 **posix.exe**
+
 Az első feladat a) része.
 Futtatási argumentumok: keresett szöveg, szállak száma, szövegfájl.
 Példa futtatás: ./posix "person" 5 "testText.txt"
 
 **openmp.exe**
+
 Az első feladat b) része.
 Futtatási argumentumok: keresett szöveg, szállak száma, szövegfájl.
 Példa futtatás: ./openmp "person" 5 "testText.txt"
