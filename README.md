@@ -15,28 +15,35 @@ Párhuzamos Algoritmusok.pptx - Az előadást tartalmazó PowerPoint-bemutató
 
 **_________________**
 
-**posix.exe**
+FELADATOK:
+
+1) Megadott string előfordulásainak megkeresése és kilistázása megadott fájlból. A felhasználó be tudja állítani, hogy hány szálon fusson az algoritmus.
+   a) POSIX
+   b) OpenMP
+2) Egy adott képhalmaz elemeinek értelmezése és a rajtuk lévő ruhadarabok megnevezése KNN algoritmussal.
+
+**_________________**
+
+**posix**
 
 Az első feladat a) része.
 
 Futtatási argumentumok: keresett szöveg, szállak száma, szövegfájl.
-
 Példa futtatás: ./posix "person" 5 "testText.txt"
 
 **_________________**
 
-**openmp.exe**
+**openmp**
 
 Az első feladat b) része.
 
 Futtatási argumentumok: keresett szöveg, szállak száma, szövegfájl.
-
 Példa futtatás: ./openmp "person" 5 "testText.txt"
 
 **_________________**
 
 
-**knn.py**
+**knn**
 A második feladat.
 Nem tartalmaz futtatási argumentumokat, helyette bekéri a kellő adatokat indításkor.
 A felhasználó kiválaszthatja a keresett ruhadarab típusát, illetve a felhasznált szállak számát.
