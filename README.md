@@ -18,9 +18,12 @@ Párhuzamos Algoritmusok.pptx - Az előadást tartalmazó PowerPoint-bemutató
 FELADATOK:
 
 1) Megadott string előfordulásainak megkeresése és kilistázása megadott fájlból. A felhasználó be tudja állítani, hogy hány szálon fusson az algoritmus.
+   
    a) POSIX
+   
    b) OpenMP
-2) Egy adott képhalmaz elemeinek értelmezése és a rajtuk lévő ruhadarabok megnevezése KNN algoritmussal.
+   
+3) Egy adott képhalmaz elemeinek értelmezése és a rajtuk lévő ruhadarabok megnevezése KNN algoritmussal.
 
 **_________________**
 
