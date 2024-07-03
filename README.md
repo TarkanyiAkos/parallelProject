@@ -2,6 +2,10 @@
 
 Párhuzamos Programozás beadandó feladat forrásfájljai, futtathatói és maga a bemutató.
 
+
+**_________________**
+
+
 **Fájlok**:
 
 Measurements.xlsx - A méréseket tartalmazó Excel munkafüzet
@@ -25,6 +29,8 @@ KNN mappa - a knn algoritmus forrásfájljait tartalmazza, köztük a python kó
 ---knn.py - a knn forráskód
 
 
+**_________________**
+
 **posix.exe**
 
 Az első feladat a) része.
@@ -33,6 +39,8 @@ Futtatási argumentumok: keresett szöveg, szállak száma, szövegfájl.
 
 Példa futtatás: ./posix "person" 5 "testText.txt"
 
+**_________________**
+
 **openmp.exe**
 
 Az első feladat b) része.
@@ -40,6 +48,9 @@ Az első feladat b) része.
 Futtatási argumentumok: keresett szöveg, szállak száma, szövegfájl.
 
 Példa futtatás: ./openmp "person" 5 "testText.txt"
+
+**_________________**
+
 
 **knn.py**
 A második feladat.
