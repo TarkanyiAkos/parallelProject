@@ -47,7 +47,10 @@ Példa futtatás: ./openmp "person" 5 "testText.txt"
 
 
 **knn**
+
 A második feladat.
+
 Nem tartalmaz futtatási argumentumokat, helyette bekéri a kellő adatokat indításkor.
+
 A felhasználó kiválaszthatja a keresett ruhadarab típusát, illetve a felhasznált szállak számát.
 A keresés és a knn kiképzés csak az előre megadott ruha-kép halmazon működik jelenleg, de a program képes lenne más képekkel is dolgozni.
