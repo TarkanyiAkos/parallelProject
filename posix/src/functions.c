@@ -47,6 +47,7 @@ int text_finder(char *argv[]) {
     char *target_text = argv[1];
     int number_of_threads = atoi(argv[2]);
     char *text_file_name = argv[3];
+	int logToFile = atoi(argv[4]);
 	
 	//open file
     FILE *file = fopen(text_file_name, "r");
@@ -54,20 +55,38 @@ int text_finder(char *argv[]) {
         perror("Error opening file");
         return 0;
     }
+	if (number_of_threads <= 0) {
+        printf("Number of threads must be greater than 0.\n");
+        return 0;
+    }
     char **lines = NULL;
     size_t line_count = 0;
     size_t line_capacity = 0;
     char buffer[MAX_LINE_LENGTH];
+	//start measuring time
+    struct timeval start, end;
+    gettimeofday(&start, NULL);
 	//splitting up text based on line buffer size
     while (fgets(buffer, MAX_LINE_LENGTH, file)) {
         if (line_count >= line_capacity) {
             line_capacity = (line_capacity == 0) ? 10 : line_capacity * 2;
             lines = realloc(lines, line_capacity * sizeof(char *));
         }
+		if (line_count > 1)
+		{
+			char* substr = malloc(strlen(target_text));
+			lines[line_count-1] = strcat(lines[line_count-1], strncpy(substr, buffer, strlen(target_text)-1));
+		}
         lines[line_count] = strdup(buffer);
         line_count++;
     }
     fclose(file);
+	gettimeofday(&end, NULL);
+	double elapsed_time = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000000.0;
+	if (logToFile == NULL)
+	{
+		printf("\nTotal time taken for splitting up text: %.6f seconds\n", elapsed_time);
+	}
 	//set up thread variables and initialize threads
     pthread_t threads[number_of_threads];
     ThreadData thread_data[number_of_threads];
@@ -84,8 +103,7 @@ int text_finder(char *argv[]) {
         thread_data[i].number_of_threads = number_of_threads;
         pthread_create(&threads[i], NULL, search_in_lines, (void *)&thread_data[i]);
     }
-	//start measuring time
-    struct timeval start, end;
+	//measure time again
     gettimeofday(&start, NULL);
 	//join threads
     for (int i = 0; i < number_of_threads; i++) {
@@ -93,18 +111,29 @@ int text_finder(char *argv[]) {
     }
 	//stop timer
     gettimeofday(&end, NULL);
-    double elapsed_time = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000000.0;
+    elapsed_time = (end.tv_sec - start.tv_sec) + (end.tv_usec - start.tv_usec) / 1000000.0;
 	//print summary
-    printf("\nSummary:\n");
-    for (int i = 0; i < number_of_threads; i++) {
-        //printf("Thread %d found %d instances\n", i, found_counts[i]);
-    }
-    printf("Total instances found: %d\n", total_found);
-    printf("Total time taken: %.6f seconds\n", elapsed_time);
+	if (logToFile == NULL)
+	{
+		printf("\nSummary:\n");
+		for (int i = 0; i < number_of_threads; i++) {
+			//printf("Thread %d found %d instances\n", i, found_counts[i]);
+		}
+		printf("Total instances found: %d\n", total_found);
+		printf("Total time taken: %.6f seconds\n", elapsed_time);
+	}
 	//free mem
     for (size_t i = 0; i < line_count; i++) {
         free(lines[i]);
     }
     free(lines);
+	
+	if (logToFile != NULL)
+	{
+		FILE *logFile = fopen("results.txt", "a");
+		fprintf(logFile, "%.6f\n", elapsed_time);
+		fclose(logFile);
+	}
+	
 	return 1;
 }
